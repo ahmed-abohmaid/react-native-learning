@@ -8,6 +8,8 @@ import {
   TouchableOpacity,
   Button,
   Alert,
+  Platform,
+  StatusBar,
 } from "react-native";
 
 export default function App() {
@@ -60,7 +62,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
-    justifyContent: "center",
+    paddingBlockStart: Platform.OS === "android" ? StatusBar.currentHeight : 0,
     alignItems: "center",
   },
 });
