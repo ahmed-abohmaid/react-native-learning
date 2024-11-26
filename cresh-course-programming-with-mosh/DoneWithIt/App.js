@@ -6,6 +6,8 @@ import {
   TouchableNativeFeedback,
   View,
   TouchableOpacity,
+  Button,
+  Alert,
 } from "react-native";
 
 export default function App() {
@@ -36,9 +38,23 @@ export default function App() {
           }}
         />
       </TouchableOpacity>
+
+      <Button
+        title="Click me"
+        onPress={() =>
+          Alert.alert("Title", "Clicked!", alertButtons, { cancelable: false })
+        }
+      />
     </SafeAreaView>
   );
 }
+
+const alertButtons = [
+  {
+    text: "Button One",
+    onPress: () => console.log("Clicked, form alert button"),
+  },
+];
 
 const styles = StyleSheet.create({
   container: {
