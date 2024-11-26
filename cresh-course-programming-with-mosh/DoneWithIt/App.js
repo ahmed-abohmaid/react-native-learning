@@ -1,3 +1,4 @@
+import { useDeviceOrientation } from "@react-native-community/hooks";
 import {
   StyleSheet,
   Text,
@@ -14,9 +15,18 @@ import {
 
 export default function App() {
   const handleTextPress = () => console.log("Hello");
+  const orientation = useDeviceOrientation();
 
   return (
     <SafeAreaView style={styles.container}>
+      <View
+        style={{
+          backgroundColor: "dodgerblue",
+          width: "100%",
+          height: orientation === "landscape" ? "100%" : "30%",
+        }}
+      />
+
       <Text onPress={handleTextPress}>Hello World!</Text>
       {/* works only on Android */}
       <TouchableNativeFeedback>
